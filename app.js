@@ -3,7 +3,7 @@ let play = document.querySelector("#play");
 let currentSong = new Audio();
 let songs;
 
-
+// time convert sec into hours:min format 
 function timeConvert(totalSeconds) {
     var minutes = Math.floor(totalSeconds / 60);
     var seconds = Math.floor(totalSeconds % 60);
@@ -19,7 +19,7 @@ function timeConvert(totalSeconds) {
 
 
 
-
+//get all songs from url
 async function getSong() {
    
     try {
@@ -41,6 +41,7 @@ async function getSong() {
     
     
 }
+//play music when ever play button click
 const playMusic = (track, pause = false) => {
     currentSong.src = "/song/" + track;
     if (!pause) {
@@ -102,7 +103,7 @@ async function main() {
 
 
 main();
-
+//event listener on click btn
 play.addEventListener("click", () => {
     if (currentSong.paused) {
         play.src = "images/pause.svg";
@@ -113,7 +114,7 @@ play.addEventListener("click", () => {
 
     }
 })
-
+//event listener on seek btn
 document.querySelector(".seekbar").addEventListener("click", e => {
     let percent = (e.offsetX / e.target.getBoundingClientRect().width) * 100;
     document.querySelector(".circle").style.left = percent + "%";
@@ -158,11 +159,11 @@ document.querySelector(".range").getElementsByTagName("input")[0].addEventListen
     console.log("volumn 100 /" + e.target.value);
 
     if (e.target.value < 1) {
-        volumeImg.src = "volumeLow.svg";
+        volumeImg.src = "images/volumeLow.svg";
 
     }
     else {
-        volumeImg.src = "volumeHigh.svg";
+        volumeImg.src = "images/volumeHigh.svg";
 
     }
 })
