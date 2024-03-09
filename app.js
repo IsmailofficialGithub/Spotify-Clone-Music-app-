@@ -23,7 +23,7 @@ function timeConvert(totalSeconds) {
 async function getSong() {
    
     try {
-        const response = await fetch("http://127.0.0.1:5500/song/");
+        const response = await fetch("https://github.com/IsmailofficialGithub/Spotify-Clone-Music-app-/tree/main/song");
         if (!response.ok) throw new Error("Failed to fetch songs.");
 
         const songs = Array.from(
